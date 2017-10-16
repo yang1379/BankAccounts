@@ -1,0 +1,55 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div id="container">
+    <h1>Account Information</h1>
+
+    <a href="Logoff">Log Off</a>
+    <h2>Welcome @ViewBag.FirstName</h2>
+    <p>Current Balance: @ViewBag.Balance</p> 
+
+    <div class="data">
+        <p class="error">@ViewBag.Error</p>
+        <form asp-controller="Account" asp-action="DepWith" method="post">
+            <div class='pair'>
+                <select required name='activity'>
+                <option value="Deposit">Deposit</option>
+                <option value="Withdraw">Withdraw</option>
+                </select>
+
+                <input type="number" name="amount"></intput>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+    
+        <table style="width:50%">
+            <thead>
+                <tr>
+                <th>Amount</th> 
+                <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach(var transaction in ViewBag.Transactions) {
+                        <tr>
+                            @if(transaction.Type == "Deposit") {
+                                <td>@transaction.Amount</td>
+                            } else {
+                                <td>-@transaction.Amount</td>
+                            }
+                            
+                            <td>@Convert.ToString(string.Format("{0:h:mm tt MMMM d yyyy}", @transaction.CreatedAt))</td>
+                        </tr>
+                        
+                    }
+
+                }
+                                
+            </tbody>
+        </table>
+
+</div>
+

@@ -1,0 +1,43 @@
+@model BankAccounts.Models.RegisterViewModel
+
+<div id="container">
+    <h1>Registration</h1>
+    <p class="error">@ViewBag.Error</p>
+    <div class="registration">
+    <form asp-controller="Registration" asp-action="Registration" method="post">
+        <div class='pair'>
+            <span asp-validation-for="FirstName"></span>
+            <label asp-for="FirstName"></label>
+            <input required asp-for="FirstName"/>
+        </div>
+
+        <div class='pair'>
+            <span asp-validation-for="LastName"></span>
+            <label asp-for="LastName"></label>
+            <input required asp-for="LastName"/>
+        </div>
+
+        <div class='pair'>
+            <span asp-validation-for="Email"></span>
+            <label asp-for="Email"></label>
+            <input required asp-for="Email"/>
+        </div>
+
+        <div class='pair'>
+            <span asp-validation-for="Password"></span>
+            <label asp-for="Password"></label>
+            <input required asp-for="Password"/>
+        </div>
+        
+        <div class='pair'>
+            <span asp-validation-for="PasswordConfirmation"></span>
+            <label asp-for="PasswordConfirmation"></label>
+            <input required asp-for="PasswordConfirmation"/>
+        </div>
+
+        <button type="submit">Register</button>
+        <br>
+        <a href="login_page">Already Registered</a>
+    </form>
+
+</div>

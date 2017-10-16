@@ -1,0 +1,24 @@
+/*Write all of your CSS here*/
+
+
+th {
+    text-align: center;
+/*    border-left: 1px;
+    background-color: #cc66ff;*/
+}
+
+td {
+    text-align: center;
+    border: 1px solid black;
+    /*background-color: #cc66ff;*/
+}
+
+tr {
+    text-align: center;
+    border: 1px solid black;
+    /*background-color: #cc66ff;*/
+}
+
+.error {
+    color: red;
+}

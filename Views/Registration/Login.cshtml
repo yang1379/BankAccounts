@@ -1,0 +1,26 @@
+@model BankAccounts.Models.RegisterViewModel
+
+<div id="container">
+    <h1>Login</h1>
+
+    <div class="login">
+    <form asp-controller="Registration" asp-action="Login" method="post">
+        <div class='pair'>
+            <span asp-validation-for="Email"></span>
+            <label asp-for="Email"></label>
+            <input required asp-for="Email"/>
+        </div>
+
+        <div class='pair'>
+            <span asp-validation-for="Password"></span>
+            <label asp-for="Password"></label>
+            <input required asp-for="Password"/>
+        </div>
+
+        <button type="submit">Login</button>
+        <br>
+        <a href="/">Need To Register?</a>
+
+    </form>
+
+</div>
